@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private CinemachineCamera playerCamera;
     private CharacterController characterController;
     private float verticalRotation;
-    private ComputerUIManager _uiManager;
+    private OSManager _uiManager;
     
     private void Awake()
     {
@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         playerCamera = GetComponentInChildren<CinemachineCamera>();
-        _uiManager = ComputerUIManager.Instance;
+        _uiManager = OSManager.Instance;
         
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

@@ -32,6 +32,6 @@ public class ComputerMonitor : MonoBehaviour
 
     public void TimerCompleted()
     {
-        ComputerUIManager.Instance.BootComputer();
+        OSManager.Instance.BootComputer();
     }
 }
