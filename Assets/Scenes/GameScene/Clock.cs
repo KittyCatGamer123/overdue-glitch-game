@@ -20,11 +20,10 @@ public class Clock : MonoBehaviour
     [SerializeField] private GameObject HourHand;
     [SerializeField] private GameObject MinuteHand;
     [SerializeField] private GameObject SecondHand;
-    
 
     public void ConfigureHandRotations(TimeFormat CurrentTime)
     {
-        float hRot = Mathf.Lerp(0, 360, CurrentTime.hour / 24);
+        float hRot = Mathf.Lerp(345, 360, (CurrentTime.minute - 50) / 10);
         float mRot = Mathf.Lerp(0, 360, CurrentTime.minute / 60);
         float sRot = Mathf.Lerp(0, 360, CurrentTime.second / 60);
         
