@@ -1,8 +1,14 @@
+using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Window : MonoBehaviour, IPointerDownHandler
 {
+    private string BaseWindowTitle = "Window";
+    private Sprite WindowIcon;
+    
     public TaskbarButton RelatedTaskbarButton;
     private bool BusyWithTween = false;
     
@@ -19,6 +25,11 @@ public class Window : MonoBehaviour, IPointerDownHandler
     [SerializeField] private PointerEventData.InputButton targetMouseButton;
     private CanvasGroup canvasGroup;
 
+    [Header("Object References")] 
+    [SerializeField] private TMP_Text WindowTitleObject;
+    [SerializeField] private Image WindowIconObject;
+    [SerializeField] private GameObject ContentPanel;
+
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -26,7 +37,24 @@ public class Window : MonoBehaviour, IPointerDownHandler
         
         maximiseSize = transform.parent.GetComponentInParent<RectTransform>().rect.size;
     }
-    
+
+    void Start()
+    {
+        float fadeInTime = 0.1f;
+        Vector3 endScale = transform.localScale;
+        canvasGroup.alpha = 0;
+        transform.localScale = endScale * 0.85f;
+        
+        transform.LeanScale(endScale, fadeInTime).setEaseOutQuad();
+        canvasGroup.LeanAlpha(1, fadeInTime);
+    }
+
+    public void UpdateTitleBar()
+    {
+        WindowTitleObject.text = BaseWindowTitle;
+        WindowIconObject.sprite = WindowIcon;
+    }
+
     public void OnPointerDown(PointerEventData eventData) => rectTransform.SetAsLastSibling();
     
     public void CloseWindowButtonPressed()
@@ -57,7 +85,7 @@ public class Window : MonoBehaviour, IPointerDownHandler
             priorMaximiseSize = rt.sizeDelta;
             priorMaximisePosition = rt.position;
             
-            rt.LeanMoveLocal(new Vector3(-0.05f, 0.45f), maximiseTweenTime);
+            rt.LeanMoveLocal(new Vector3(0f, 0f), maximiseTweenTime);
             rt.LeanSize(maximiseSize, maximiseTweenTime)
                 .setOnComplete(() => BusyWithTween = false);
         }
@@ -109,5 +137,19 @@ public class Window : MonoBehaviour, IPointerDownHandler
             canvasGroup.LeanAlpha(1, minimiseTweenTime)
                 .setOnComplete(() => BusyWithTween = false);
         }
+    }
+
+    public void InjectContentToWindow(GameObject gmObj)
+    {
+        Instantiate(gmObj, ContentPanel.transform);
+        OSApplication app = gmObj.GetComponent<OSApplication>();
+        
+        BaseWindowTitle = app.AppName;
+        WindowIcon = app.AppIcon;
+        UpdateTitleBar();
+        
+        RelatedTaskbarButton.ButtonName = app.AppName;
+        RelatedTaskbarButton.ButtonIcon = app.AppIcon;
+        RelatedTaskbarButton.UpdateTitleBar();
     }
 }

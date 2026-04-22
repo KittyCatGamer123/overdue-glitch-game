@@ -1,13 +1,28 @@
+using System;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TaskbarButton : MonoBehaviour
 {
     public Window RelativeWindow;
-    
+
+    public string ButtonName;
+    public Sprite ButtonIcon;
+
+    [SerializeField] private TMP_Text ButtonNameTxt;
+    [SerializeField] private Image ButtonIconObject;
     private CanvasGroup canvasGroup;
+    
     void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
+    }
+
+    public void UpdateTitleBar()
+    {
+        ButtonNameTxt.text = ButtonName;
+        ButtonIconObject.sprite = ButtonIcon;
     }
 
     public void OnButtonPressed()

@@ -599,6 +599,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Window
   RelatedTaskbarButton: {fileID: 0}
   targetMouseButton: 0
+  WindowTitleObject: {fileID: 6375274104582474446}
+  WindowIconObject: {fileID: 7890267422055278795}
+  ContentPanel: {fileID: 7336415775928118343}
 --- !u!225 &4092349155576160380
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -898,8 +901,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.37501526, y: -5.2499847}
-  m_SizeDelta: {x: -8.25, y: -15.5}
+  m_AnchoredPosition: {x: -0.17669678, y: -4.440399}
+  m_SizeDelta: {x: -3.4428, y: -13.5399}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7470274441264990972
 MonoBehaviour:
