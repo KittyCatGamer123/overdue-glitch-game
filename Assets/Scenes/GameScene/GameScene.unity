@@ -8145,7 +8145,7 @@ Light:
   m_Type: 2
   m_Color: {r: 0.91823894, g: 0.7165344, b: 0.430244, a: 1}
   m_Intensity: 25
-  m_Range: 13.707936
+  m_Range: 15
   m_SpotAngle: 128.27702
   m_InnerSpotAngle: 89.77128
   m_CookieSize2D: {x: 0.5, y: 0.5}
@@ -20531,7 +20531,7 @@ Light:
   m_Type: 2
   m_Color: {r: 0.91764706, g: 0.7176471, b: 0.43137255, a: 1}
   m_Intensity: 12
-  m_Range: 13.707936
+  m_Range: 15
   m_SpotAngle: 113.78739
   m_InnerSpotAngle: 61.117134
   m_CookieSize2D: {x: 0.5, y: 0.5}
@@ -50258,7 +50258,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9, y: 2.9, z: 16}
-  m_LocalScale: {x: 1.75, y: 1.125, z: 2}
+  m_LocalScale: {x: 1.75, y: 1.3125, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1980244838}
