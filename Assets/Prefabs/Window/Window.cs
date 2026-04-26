@@ -55,7 +55,8 @@ public class Window : MonoBehaviour, IPointerDownHandler
         WindowIconObject.sprite = WindowIcon;
     }
 
-    public void OnPointerDown(PointerEventData eventData) => rectTransform.SetAsLastSibling();
+    public void OnPointerDown(PointerEventData eventData) => BringToFront();
+    public void BringToFront() => rectTransform.SetAsLastSibling();
     
     public void CloseWindowButtonPressed()
     {

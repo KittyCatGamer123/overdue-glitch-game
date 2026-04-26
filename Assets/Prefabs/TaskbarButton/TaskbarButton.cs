@@ -33,6 +33,7 @@ public class TaskbarButton : MonoBehaviour
             return;
         }
         RelativeWindow.MinimiseWindowButtonPressed();
+        RelativeWindow.BringToFront();
     }
 
     public void OnWindowDestroy()
