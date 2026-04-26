@@ -34,10 +34,10 @@ RectTransform:
   - {fileID: 979857473127349398}
   m_Father: {fileID: 6709130724488643525}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -5.2876015}
-  m_SizeDelta: {x: 31.813, y: 10.575203}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 31.813, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &8126102052921879962
 CanvasRenderer:
@@ -1227,7 +1227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OSApplication
   AppName: Task Manager
-  AppIcon: {fileID: 0}
+  AppIcon: {fileID: 8863627009295405237, guid: 44c68eeddf2e30c448ef977a8e17ccb8, type: 3}
 --- !u!114 &8541521721024188557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1743,10 +1743,10 @@ RectTransform:
   - {fileID: 5088577431109493191}
   m_Father: {fileID: 6709130724488643525}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 31.813, y: -5.2876015}
-  m_SizeDelta: {x: 39.8226, y: 10.575203}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 39.8226, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &4431263609316305397
 CanvasRenderer:
