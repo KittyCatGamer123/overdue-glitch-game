@@ -22,10 +22,10 @@ public class ComputerMonitor : MonoBehaviour
         MonitorCamera.gameObject.SetActive(UsingMonitor);
         InteractableObj.SetInteractable(!UsingMonitor);
         HUDController.Instance.crosshairObj.SetActive(!UsingMonitor);
+        PlayerMovement.Instance.CanMove = !UsingMonitor;
         
         if (UsingMonitor)
         {
-            PlayerMovement.Instance.CanMove = false;
             bootupTimer.StartTimer();
         }
     }

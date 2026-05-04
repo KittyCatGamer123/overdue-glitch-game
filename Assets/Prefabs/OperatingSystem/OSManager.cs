@@ -25,4 +25,13 @@ public class OSManager : MonoBehaviour
     {
         TimeDisplay.text = $"{t.hour:00}:{t.minute:00}:{t.second:00}";
     }
+
+    public void ExitComputer()
+    {
+        ComputerMonitor.Instance.ToggleMonitor();
+        ComputerActive = false;
+        gameObject.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
 }
