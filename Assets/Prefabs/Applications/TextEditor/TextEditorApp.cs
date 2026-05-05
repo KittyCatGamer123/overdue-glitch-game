@@ -4,41 +4,30 @@ public class TextEditorApp : MonoBehaviour
 {
     private bool isSaving = false;
     public GameObject LoadingBarPrefab;
-    private bool TimerOn = false;
-    private float Timer = 20;
-    int TabNo = TabCounter.Tabs;
-    //[SerializeField] private GameObject ProgramPrefab;
-    //[SerializeField] private GameObject WindowPrefab;
+
+    [SerializeField] private OSPopup TooManyWindowsError;
+    [SerializeField] private Timer SaveCountdown;
+    
     public void OnSaveClicked()
     {
         if (isSaving) return;
         isSaving = true;
         
-        GameObject Loading = Instantiate(LoadingBarPrefab, transform.position, transform.rotation, this.transform);
-        TimerOn = true;
-    }
-
-    public void Start()
-    {
+        //GameObject Loading = Instantiate(LoadingBarPrefab, transform.position, transform.rotation, this.transform);
+        //SaveCountdown.StartTimer();
         
+        OSManager.Instance.CreateNewPopup(TooManyWindowsError);
     }
-    public void Update()
-    {
-        if(TimerOn = true)
-        {
-            Timer -= Time.deltaTime;
-        }
-        if(Timer < 5)
-        {
-            if(TabNo > 2)
-            {
-                TimerOn = false;
-                Destroy (GetComponent<Transform> ().GetChild(3).gameObject);
-                //Trying to create error window but don't know enough
-                //GameObject windowInstance = Instantiate(WindowPrefab, transform.position);
-                //Window windowObject = windowInstance.GetComponent<Window>();
-                //windowObject.InjectContentToWindow(ProgramPrefab);
-            }
-        }
-    }
+    
+    // public void Update()
+    // {
+    //     if (SaveCountdown.TimePassed > 15)
+    //     {
+    //         if (OSManager.Instance.GetTaskbarCount() > 2)
+    //         {
+    //             // @Senan: Please rewrite this so it doesn't call every frame. Thanks :3
+    //             SaveCountdown.IsActive = false;
+    //         }
+    //     }
+    // }
 }

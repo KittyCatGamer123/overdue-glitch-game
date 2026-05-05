@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class TaskbarButton : MonoBehaviour
 {
     public Window RelativeWindow;
+    public OSPopup RelativePopup;
 
     public string ButtonName;
     public Sprite ButtonIcon;
@@ -27,13 +28,20 @@ public class TaskbarButton : MonoBehaviour
 
     public void OnButtonPressed()
     {
-        if (RelativeWindow == null)
+        if (RelativeWindow != null)
+        {
+            RelativeWindow.MinimiseWindowButtonPressed();
+            RelativeWindow.BringToFront();
+        }
+        else if (RelativePopup != null)
+        {
+            RelativePopup.MinimiseWindowButtonPressed();
+            RelativePopup.BringToFront();
+        }
+        else
         {
             print("No relative window found!");
-            return;
         }
-        RelativeWindow.MinimiseWindowButtonPressed();
-        RelativeWindow.BringToFront();
     }
 
     public void OnWindowDestroy()

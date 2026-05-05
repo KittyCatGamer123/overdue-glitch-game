@@ -41,6 +41,21 @@ public class OSManager : MonoBehaviour
         }
     }
 
+    public void CreateNewPopup(OSPopup popupPrefab)
+    {
+        GameObject popupInstance = Instantiate(popupPrefab.gameObject, WindowContainer.transform);
+        GameObject taskbarInstance = Instantiate(TaskbarButtonPrefab, TaskbarRef.transform);
+        
+        OSPopup popupObject = popupInstance.GetComponent<OSPopup>();
+        TaskbarButton taskbarButton = taskbarInstance.GetComponent<TaskbarButton>();
+        
+        popupObject.RelatedTaskbarButton = taskbarButton;
+        taskbarButton.RelativePopup = popupObject;
+
+        taskbarButton.ButtonName = (popupObject.Type == PopupType.Notice) ? "Notification" : "Error";
+        taskbarButton.UpdateTitleBar();
+    }
+
     public void BootComputer()
     {
         ComputerActive = true;
