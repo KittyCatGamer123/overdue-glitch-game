@@ -3,33 +3,34 @@ using UnityEngine;
 public class TextEditorApp : MonoBehaviour
 {
     private bool isSaving = false;
-    public GameObject LoadingBarPrefab;
 
+    [SerializeField] private OSPopup SavingDocumentPopup;
     [SerializeField] private OSPopup TooManyWindowsError;
     [SerializeField] private Timer SaveCountdown;
+
+    private OSPopup SaveDocPopupInst;
     
     public void OnSaveClicked()
     {
         if (isSaving) return;
         isSaving = true;
         
-        GameObject Loading = Instantiate(LoadingBarPrefab, transform.position, transform.rotation, this.transform);
+        SaveDocPopupInst = OSManager.Instance.CreateNewPopup(SavingDocumentPopup);
         SaveCountdown.StartTimer();
-        
-        
     }
     
      public void Update()
      {
         if (SaveCountdown.IsActive)
         {
-            if (SaveCountdown.TimePassed > 15)
+            if (SaveCountdown.TimePassed > 6)
             {
                 if (OSManager.Instance.GetTaskbarCount() > 2)
                 {
                     SaveCountdown.IsActive = false;
+                    isSaving = false;
+                    SaveDocPopupInst.CloseWindowButtonPressed();
                     OSManager.Instance.CreateNewPopup(TooManyWindowsError);
-                    Destroy (GetComponent<Transform> ().GetChild(4).gameObject);
                 }
             }            
         }

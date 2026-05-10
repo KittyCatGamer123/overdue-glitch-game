@@ -22,7 +22,7 @@ public class OSManager : MonoBehaviour
         gameObject.SetActive(false);
     }
     
-    public void CreateNewWindow(GameObject injectionProgram = null)
+    public Window CreateNewWindow(GameObject injectionProgram = null)
     {
         GameObject windowInstance = Instantiate(WindowPrefab, WindowContainer.transform);
         GameObject taskbarInstance = Instantiate(TaskbarButtonPrefab, TaskbarRef.transform);
@@ -39,9 +39,11 @@ public class OSManager : MonoBehaviour
         {
             windowObject.InjectContentToWindow(injectionProgram);
         }
+
+        return windowObject;
     }
 
-    public void CreateNewPopup(OSPopup popupPrefab)
+    public OSPopup CreateNewPopup(OSPopup popupPrefab)
     {
         GameObject popupInstance = Instantiate(popupPrefab.gameObject, WindowContainer.transform);
         GameObject taskbarInstance = Instantiate(TaskbarButtonPrefab, TaskbarRef.transform);
@@ -54,6 +56,8 @@ public class OSManager : MonoBehaviour
 
         taskbarButton.ButtonName = (popupObject.Type == PopupType.Notice) ? "Notification" : "Error";
         taskbarButton.UpdateTitleBar();
+
+        return popupObject;
     }
 
     public void BootComputer()

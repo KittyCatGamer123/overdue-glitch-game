@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -25,12 +26,11 @@ public class OSPopup : MonoBehaviour, IPointerDownHandler
     private Sprite popupIcon;
     private RectTransform rectTransform;
 
-    void Awake()
+    private void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
         popupImage = GetComponent<Image>();
         rectTransform = GetComponent<RectTransform>();
-        //popupIcon = GetComponentInChildren<Sprite>();
     }
 
     void Start()

@@ -298,6 +298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   LoadingBarPrefab: {fileID: 933831619339509426, guid: 89e98ea7b572af041b4ec31ed5755863, type: 3}
+  SavingDocumentPopup: {fileID: 5603513160004118174, guid: b901c74c6960937488eb225fc02d793e, type: 3}
   TooManyWindowsError: {fileID: 5603513160004118174, guid: e0147e2b55678c5489c04da174f2e859, type: 3}
   SaveCountdown: {fileID: 5602355280520425731}
 --- !u!1 &522722275155482473
