@@ -13,21 +13,25 @@ public class TextEditorApp : MonoBehaviour
         if (isSaving) return;
         isSaving = true;
         
-        //GameObject Loading = Instantiate(LoadingBarPrefab, transform.position, transform.rotation, this.transform);
-        //SaveCountdown.StartTimer();
+        GameObject Loading = Instantiate(LoadingBarPrefab, transform.position, transform.rotation, this.transform);
+        SaveCountdown.StartTimer();
         
-        OSManager.Instance.CreateNewPopup(TooManyWindowsError);
+        
     }
     
-    // public void Update()
-    // {
-    //     if (SaveCountdown.TimePassed > 15)
-    //     {
-    //         if (OSManager.Instance.GetTaskbarCount() > 2)
-    //         {
-    //             // @Senan: Please rewrite this so it doesn't call every frame. Thanks :3
-    //             SaveCountdown.IsActive = false;
-    //         }
-    //     }
-    // }
+     public void Update()
+     {
+        if (SaveCountdown.IsActive)
+        {
+            if (SaveCountdown.TimePassed > 15)
+            {
+                if (OSManager.Instance.GetTaskbarCount() > 2)
+                {
+                    SaveCountdown.IsActive = false;
+                    OSManager.Instance.CreateNewPopup(TooManyWindowsError);
+                    Destroy (GetComponent<Transform> ().GetChild(4).gameObject);
+                }
+            }            
+        }
+     }
 }
