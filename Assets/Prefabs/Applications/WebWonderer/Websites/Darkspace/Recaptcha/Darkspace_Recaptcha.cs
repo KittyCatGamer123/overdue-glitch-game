@@ -21,11 +21,12 @@ public class Darkspace_Recaptcha : MonoBehaviour
     [SerializeField] private GameObject recaptchaError;
     
     private WebWonder webWonder;
+    private int recapIdx;
     private string recapAnswer;
 
     private void Awake()
     {
-        webWonder = Object.FindObjectsByType<WebWonder>(FindObjectsSortMode.None)[0];
+        webWonder = OSManager.FindParentWebWonderer(transform);
     }
 
     private void Start()
@@ -36,8 +37,11 @@ public class Darkspace_Recaptcha : MonoBehaviour
     public void ChangeRecaptcha()
     {
         int idx = Random.Range(0, RecaptchaEntries.Length);
+        if (idx == recapIdx) ChangeRecaptcha();
+        
         recapAnswer = RecaptchaEntries[idx].text;
         recaptchaImage.sprite = RecaptchaEntries[idx].img;
+        recapIdx = idx;
     }
 
     public void VerifyInput()

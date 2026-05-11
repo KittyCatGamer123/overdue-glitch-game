@@ -7,7 +7,7 @@ public class Housecontained : MonoBehaviour
 
     private void Awake()
     {
-        webWonder = Object.FindObjectsByType<WebWonder>(FindObjectsSortMode.None)[0];
+        webWonder = OSManager.FindParentWebWonderer(transform);
     }
 
     public void OnNextPageClicked()

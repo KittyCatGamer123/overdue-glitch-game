@@ -90,5 +90,16 @@ public class OSManager : MonoBehaviour
         Cursor.visible = false;
     }
 
+    public static WebWonder FindParentWebWonderer(Transform obj_trans)
+    {
+        Object parentComp = obj_trans.gameObject.GetComponent<WebWonder>();
+        if (parentComp == null)
+        {
+            return FindParentWebWonderer(obj_trans.parent.transform);
+        }
+
+        return (WebWonder)parentComp;
+    }
+
     public int GetTaskbarCount() => Instance.Taskbar.childCount;
 }

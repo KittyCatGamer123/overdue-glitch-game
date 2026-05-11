@@ -7,7 +7,7 @@ public class Darkspace_Modules : MonoBehaviour
 
     private void Awake()
     {
-        webWonder = Object.FindObjectsByType<WebWonder>(FindObjectsSortMode.None)[0];
+        webWonder = OSManager.FindParentWebWonderer(transform);
     }
 
     public void GameImplementButtonPressed()

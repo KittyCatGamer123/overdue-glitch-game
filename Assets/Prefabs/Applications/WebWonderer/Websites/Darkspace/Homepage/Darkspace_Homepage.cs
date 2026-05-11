@@ -9,7 +9,7 @@ public class Darkspace_Homepage : MonoBehaviour
 
     private void Awake()
     {
-        webWonder = Object.FindObjectsByType<WebWonder>(FindObjectsSortMode.None)[0];
+        webWonder = OSManager.FindParentWebWonderer(transform);
     }
 
     private void Start()

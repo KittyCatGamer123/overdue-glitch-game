@@ -17,7 +17,7 @@ public class Darkspace_Login : MonoBehaviour
 
     private void Awake()
     {
-        explorerReference = transform.parent.GetComponentInParent<WebWonder>();
+        explorerReference = OSManager.FindParentWebWonderer(transform);
     }
 
     private void Start()

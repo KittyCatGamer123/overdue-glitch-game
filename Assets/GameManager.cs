@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        DarkspaceLoggedIn = false;
         GameTimer = GetComponent<Timer>();
         GameTimer.StartTimer();
 
