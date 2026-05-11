@@ -18,6 +18,10 @@ public class GameManager : MonoBehaviour
     public bool DarkspaceLoggedIn = false;
     public string StudentEmail;
     public string StudentPassword;
+    static public bool Saved;
+    static public bool Fixed;
+    static public bool AntiVirus;
+    static public bool Uploaded;
 
     private void Start()
     {
