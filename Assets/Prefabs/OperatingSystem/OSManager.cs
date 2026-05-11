@@ -15,10 +15,18 @@ public class OSManager : MonoBehaviour
     [SerializeField] private GameObject TaskbarButtonPrefab;
     [SerializeField] private GameObject WindowContainer;
     [SerializeField] private HorizontalLayoutGroup TaskbarRef;
+    [SerializeField] private GameObject BootProgram;
     
     private void Awake()
     {
-        Instance = this;
+        Instance = this;   
+    }
+
+    private void Start()
+    {
+        CreateNewWindow(BootProgram);
+        CreateNewWindow(BootProgram);
+        CreateNewWindow(BootProgram);
         gameObject.SetActive(false);
     }
     

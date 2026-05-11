@@ -3318,6 +3318,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   gameclock: {fileID: 2028984971}
   OperatingSystem: {fileID: 1909773741}
+  DarkspaceLoggedIn: 0
+  StudentEmail: 
+  StudentPassword: 
 --- !u!114 &161281103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12815,6 +12818,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8203892514722484797, guid: 49570ad4da4580f41abc1d1331e15d9b, type: 3}
+      propertyPath: BootProgram
+      value: 
+      objectReference: {fileID: 2680613744319619907, guid: d44196c6d8245244a97b2ee55c95acdd, type: 3}
     - target: {fileID: 8251127568618716195, guid: 49570ad4da4580f41abc1d1331e15d9b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
