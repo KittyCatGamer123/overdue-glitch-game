@@ -2,5 +2,5 @@ using UnityEngine;
 
 public class FileExplorer : MonoBehaviour
 {
-    public bool uploading = false;
+    public static bool uploading = true;
 }
