@@ -711,6 +711,7 @@ MonoBehaviour:
   TaskbarButtonPrefab: {fileID: 1122724306602720811, guid: fb4031ec3be79a248bf9ffbc291e2d69, type: 3}
   WindowContainer: {fileID: 8895149577990966450}
   TaskbarRef: {fileID: 1381146846746023737}
+  BootProgram: {fileID: 2680613744319619907, guid: d44196c6d8245244a97b2ee55c95acdd, type: 3}
 --- !u!1 &4487172369981294830
 GameObject:
   m_ObjectHideFlags: 0
