@@ -11,9 +11,16 @@ public class Timer : MonoBehaviour
 
     public void StartTimer()
     {
-        TimePassed = 0;
+        TimePassed = 0f;
         IsActive = true;
     }
+
+    public void StopTimer()
+    {
+        IsActive = false;
+        TimePassed = 0f;
+    }
+
     void Update()
     {
         if (IsActive)

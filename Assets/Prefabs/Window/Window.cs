@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Window : MonoBehaviour, IPointerDownHandler
 {
-    private string BaseWindowTitle = "Window";
+    public string WindowTitle = "Window";
     private Sprite WindowIcon;
     
     public TaskbarButton RelatedTaskbarButton;
@@ -51,7 +51,7 @@ public class Window : MonoBehaviour, IPointerDownHandler
 
     public void UpdateTitleBar()
     {
-        WindowTitleObject.text = BaseWindowTitle;
+        WindowTitleObject.text = WindowTitle;
         WindowIconObject.sprite = WindowIcon;
     }
 
@@ -145,7 +145,7 @@ public class Window : MonoBehaviour, IPointerDownHandler
         Instantiate(gmObj, ContentPanel.transform);
         OSApplication app = gmObj.GetComponent<OSApplication>();
         
-        BaseWindowTitle = app.AppName;
+        WindowTitle = app.AppName;
         WindowIcon = app.AppIcon;
         UpdateTitleBar();
         
