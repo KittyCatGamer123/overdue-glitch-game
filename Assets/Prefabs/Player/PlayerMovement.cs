@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float Sensitivity = 2.0f;
     [SerializeField] public float VerticalLimit = 80.0f;
 
+   [SerializeField] public AudioSource clicksource;
+
     private CinemachineCamera playerCamera;
     private CharacterController characterController;
     private float verticalRotation;
@@ -38,6 +40,11 @@ public class PlayerMovement : MonoBehaviour
         {
             Movement();
             LookRotation();
+        }
+
+        if (Input.GetMouseButtonDown(0) && _uiManager.ComputerActive)
+        {
+            clicksource.Play();
         }
     }
 
