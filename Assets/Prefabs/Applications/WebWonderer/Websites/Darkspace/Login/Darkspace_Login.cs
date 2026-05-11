@@ -8,7 +8,7 @@ public class Darkspace_Login : MonoBehaviour
 {
     private WebWonder explorerReference;
 
-    [SerializeField] private Website Homescreen;
+    [SerializeField] private Website RecaptchaPage;
     [SerializeField] private Button LoginButton; 
     [SerializeField] private TMP_InputField InputEmail;
     [SerializeField] private TMP_InputField InputPwd;
@@ -41,7 +41,7 @@ public class Darkspace_Login : MonoBehaviour
         if (InputEmail.text == GameManager.game.StudentEmail && InputPwd.text == GameManager.game.StudentPassword)
         {
             GameManager.game.DarkspaceLoggedIn = true;
-            explorerReference.ChangeWebsite(Homescreen);
+            explorerReference.ChangeWebsite(RecaptchaPage);
         }
         else
         {

@@ -1194,7 +1194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7012ecc0b09c0ee4391de51006bf9156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  Homescreen: {fileID: 2653411739074623774, guid: 729cde4f2b83c874292d17e3e8df36aa, type: 3}
+  RecaptchaPage: {fileID: 4011536100038313525, guid: 36d72626b6e0e5e47820c82230a5b50f, type: 3}
   LoginButton: {fileID: 7602862483282290598}
   InputEmail: {fileID: 3891363466807669199}
   InputPwd: {fileID: 4525908004057694687}
