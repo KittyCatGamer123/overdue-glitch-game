@@ -25,7 +25,7 @@ public class TextEditorApp : MonoBehaviour
         {
             if (SaveCountdown.TimePassed > 6)
             {
-                if (OSManager.Instance.GetTaskbarCount() > 2)
+                if (OSManager.Instance.GetTaskbarCount() > 3)
                 {
                     SaveCountdown.IsActive = false;
                     isSaving = false;
