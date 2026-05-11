@@ -15,7 +15,10 @@ public class OSManager : MonoBehaviour
     [SerializeField] private GameObject TaskbarButtonPrefab;
     [SerializeField] private GameObject WindowContainer;
     [SerializeField] private HorizontalLayoutGroup TaskbarRef;
-    [SerializeField] private GameObject BootProgram;
+    
+    [Header("Bootup References")]
+    [SerializeField] private GameObject webWonObj;
+    [SerializeField] private GameObject letterboxObj;
     
     private void Awake()
     {
@@ -24,10 +27,23 @@ public class OSManager : MonoBehaviour
 
     private void Start()
     {
-        CreateNewWindow(BootProgram);
-        CreateNewWindow(BootProgram);
-        CreateNewWindow(BootProgram);
         gameObject.SetActive(false);
+        MakePresetWindows();
+    }
+
+    private void MakePresetWindows()
+    {
+        Window w1 = CreateNewWindow(webWonObj);
+        w1.transform.localPosition = new Vector2(-50, 30);
+        
+        Window w2 = CreateNewWindow(webWonObj);
+        w2.transform.localPosition = new Vector2(65, 11);
+        
+        Window w3 = CreateNewWindow(webWonObj);
+        w3.transform.localPosition = new Vector2(35, -35);
+        
+        Window letterBox = CreateNewWindow(letterboxObj);
+        letterBox.transform.localPosition = new Vector2(5, -10);
     }
     
     public Window CreateNewWindow(GameObject injectionProgram = null)

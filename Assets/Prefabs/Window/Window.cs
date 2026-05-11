@@ -8,7 +8,8 @@ public class Window : MonoBehaviour, IPointerDownHandler
 {
     public string WindowTitle = "Window";
     private Sprite WindowIcon;
-    
+
+    public OSApplication CurrentApplication;
     public TaskbarButton RelatedTaskbarButton;
     private bool BusyWithTween = false;
     
@@ -143,14 +144,14 @@ public class Window : MonoBehaviour, IPointerDownHandler
     public void InjectContentToWindow(GameObject gmObj)
     {
         Instantiate(gmObj, ContentPanel.transform);
-        OSApplication app = gmObj.GetComponent<OSApplication>();
+        CurrentApplication = gmObj.GetComponent<OSApplication>();
         
-        WindowTitle = app.AppName;
-        WindowIcon = app.AppIcon;
+        WindowTitle = CurrentApplication.AppName;
+        WindowIcon = CurrentApplication.AppIcon;
         UpdateTitleBar();
         
-        RelatedTaskbarButton.ButtonName = app.AppName;
-        RelatedTaskbarButton.ButtonIcon = app.AppIcon;
+        RelatedTaskbarButton.ButtonName = CurrentApplication.AppName;
+        RelatedTaskbarButton.ButtonIcon = CurrentApplication.AppIcon;
         RelatedTaskbarButton.UpdateTitleBar();
     }
 }
