@@ -1,4 +1,5 @@
 using System;
+using Unity.Cinemachine;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -11,18 +12,37 @@ public class GameManager : MonoBehaviour
     }
 
     public TimeFormat RemainingTime;
-    private Timer GameTimer;
+    public Timer GameTimer;
     [SerializeField] public Clock gameclock;
     [SerializeField] public OSManager OperatingSystem;
+
+    [SerializeField] private GameObject TitleScreen;
+    [SerializeField] private GameObject Crosshair;
+    [SerializeField] private GameObject TitleCamera;
+    [SerializeField] private GameObject Player;
 
     public bool DarkspaceLoggedIn = false;
     public string StudentEmail;
     public string StudentPassword;
+    [SerializeField] private Stickynote Stickynote;
 
     private void Start()
     {
-        DarkspaceLoggedIn = false;
         GameTimer = GetComponent<Timer>();
+        TitleScreen.SetActive(true);
+        Crosshair.SetActive(false);
+        TitleCamera.SetActive(true);
+        Player.SetActive(false);
+    }
+
+    public void BeginGame()
+    {
+        TitleScreen.SetActive(false);
+        Crosshair.SetActive(true);
+        TitleCamera.SetActive(false);
+        Player.SetActive(true);
+        
+        DarkspaceLoggedIn = false;
         GameTimer.StartTimer();
 
         // A-D + 00000000 + @darkspace.com
@@ -37,6 +57,7 @@ public class GameManager : MonoBehaviour
             StudentPassword += (char)(Random.Range(65, 91) + (isCap ? 0 : 32));
         }
         
+        Stickynote.SetSticky($"\"Darkspace Login:\n{StudentEmail}\nPassword:\n{StudentPassword}\"");
         print($"{StudentEmail} : {StudentPassword}");
     }
 

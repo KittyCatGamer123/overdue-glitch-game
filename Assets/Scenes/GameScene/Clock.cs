@@ -20,6 +20,12 @@ public class Clock : MonoBehaviour
     [SerializeField] private GameObject HourHand;
     [SerializeField] private GameObject MinuteHand;
     [SerializeField] private GameObject SecondHand;
+    public Clock instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     public void ConfigureHandRotations(TimeFormat CurrentTime)
     {
