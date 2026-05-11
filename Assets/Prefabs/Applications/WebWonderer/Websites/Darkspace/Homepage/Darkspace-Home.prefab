@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7da8e50bd89e24b4a8047a0b76985fde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  loginPage: {fileID: 8005353880540178048, guid: a2398a3a0f7bfc744ad1d80382e037dd, type: 3}
 --- !u!1 &950343079206254292
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,6 +686,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8979114459155383401, guid: 860054d54f92c6f419b67ab3ad739187, type: 3}
+      propertyPath: CorrespondingSite
+      value: 
+      objectReference: {fileID: 2653411739074623774}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

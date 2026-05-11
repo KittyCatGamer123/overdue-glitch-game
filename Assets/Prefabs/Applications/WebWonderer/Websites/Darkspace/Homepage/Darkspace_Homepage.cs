@@ -1,16 +1,22 @@
+using System;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 public class Darkspace_Homepage : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private Website loginPage;
+    private WebWonder webWonder;
+
+    private void Awake()
     {
-        
+        webWonder = Object.FindObjectsByType<WebWonder>(FindObjectsSortMode.None)[0];
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        if (!GameManager.game.DarkspaceLoggedIn)
+        {
+            webWonder.ChangeWebsite(loginPage);
+        }
     }
 }
