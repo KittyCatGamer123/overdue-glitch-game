@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     public string StudentEmail;
     public string StudentPassword;
 
-    [SerializeField] GameObject Stickynote;
+    [SerializeField] private Stickynote Stickynote;
 
     static public bool Saved;
     static public bool Fixed;
